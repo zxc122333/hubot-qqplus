@@ -1,7 +1,13 @@
+try 
+  {Robot,Adapter,TextMessage,User} = require 'hubot' 
+catch 
+  prequire = require('parent-require') 
+  {Robot,Adapter,TextMessage,User} = prequire 'hubot'
+
 class QQPlus extends Adapter
 
   constructor: ->
-    @robot.logger.info "Constructor"
+    # @robot.logger.info "Constructor"
     super
 
 
@@ -15,7 +21,7 @@ class QQPlus extends Adapter
     @robot.logger.info "Run"
     @emit "connected"
     user = new User 1001, name: 'Sample User'
-    message = new TextMessage user, 'Some Sample Message', 'MSG-001'
+    message = new TextMessage user, 'hubot: help', 'MSG-001'
     @robot.receive message
 
 
