@@ -24,10 +24,9 @@ class QQPlus extends Adapter
     message = new TextMessage user, 'hubot: help', 'MSG-001'
     @robot.receive message
 
-    self = this
-    setTimeout ()->
-      self.robot.receive message
-      self.robot.logger.info "Run"
+    setTimeout ()=>
+      @robot.receive message
+      @robot.logger.info "Run"
     , 1000
 
 
